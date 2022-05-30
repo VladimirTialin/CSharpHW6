@@ -15,7 +15,7 @@ void AddNumber(int [] array)
             array[i] = number;
             if (array[i] > 0)
             {
-                temp+=1;
+                temp++;
             }
             Array.Resize (ref array,array.Length+1);
         }
