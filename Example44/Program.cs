@@ -4,23 +4,20 @@
 Если N = 3 -> 0 1 1
 Если N = 7 -> 0 1 1 2 3 5 8
 */
-int Fibonacci(int number)
+
+void Fibonacci(int number,
+                int numberNull = 0,
+                int numberOne = 1)
 {
-    int FirstNumber=0;
-    int NumberFibonacci=0;
-    int SecondNumber=1;
-    if(Math.Abs(number)==1)
-    {
-        NumberFibonacci=SecondNumber;
-        for (int i = 0; i < Math.Abs(number)-1; i++)
-    {
-        if(number==1 || number==2)
-        {
-            NumberFibonacci=FirstNumber+SecondNumber;
-            FirstNumber=SecondNumber;
-            SecondNumber=NumberFibonacci;
-        }
-    }
-    return number*NumberFibonacci;
+Console.Write($"N = {number} -> {numberNull} {numberOne} ");
+for(int i = 3; i <= number; i++)
+{
+    int Fibonacci = numberNull + numberOne;
+    Console.Write(Fibonacci+" ");
+    numberNull = numberOne;
+    numberOne = Fibonacci;
 }
-int result =Fibonacci(5);
+}
+Console.Write("Формируем ряд Фибоначчи! Введите число N = ");
+int number=Convert.ToInt32(Console.ReadLine());
+Fibonacci(number);
