@@ -1,22 +1,29 @@
 ﻿//Задача 45: Напишите программу, которая будет создавать копию заданного массива с помощью поэлементного копирования.
-
-int Fibonacci(int number)
+int [] AddArray(int [] array)
 {
-    int FirstNumber=0;
-    int NumberFibonacci=0;
-    int SecondNumber=1;
-    if(Math.Abs(number)==1)
+    Console.WriteLine($"Введите {array.Length} любых чисел: ");
+    for (int i = 0; i < array.Length; i++)
     {
-        NumberFibonacci=SecondNumber;
-        for (int i = 0; i < Math.Abs(number)-1; i++)
-    {
-        if(number==1 || number==2)
-        {
-            NumberFibonacci=FirstNumber+SecondNumber;
-            FirstNumber=SecondNumber;
-            SecondNumber=NumberFibonacci;
-        }
+        array[i]=Convert.ToInt32(Console.ReadLine());
     }
-    return number*NumberFibonacci;
+    return array;
 }
-int result =Fibonacci(5);
+void CopyArray(int[] array)
+{       
+    Console.WriteLine($"Поэлементное копирование массива размером [{array.Length}] ...");
+    var ResultArray= new int [array.Length];
+    for (int i = 0; i < array.Length; i++)
+    {
+        ResultArray[i]=array[i];
+        Thread.Sleep(800);
+        Console.WriteLine($"Array [{i}] = {array[i]} в NewArray [{i}] = {ResultArray[i]}");
+    }
+    Thread.Sleep(800);
+    Console.WriteLine("Копирование завершено!");
+}
+
+Console.Write("Введите размер массива: ");
+int size=Convert.ToInt32(Console.ReadLine());
+int [] Numbers= new int[size];
+int[] result=AddArray(Numbers);
+CopyArray(result);

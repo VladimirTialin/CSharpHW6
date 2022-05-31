@@ -4,29 +4,23 @@
 Если N = 3 -> 0 1 1
 Если N = 7 -> 0 1 1 2 3 5 8
 */
-int [] AddArray(int [] array)
+int Fibonacci(int number)
 {
-    Console.WriteLine($"Введите {array.Length} любых чисел: ");
-    for (int i = 0; i < array.Length; i++)
+    int FirstNumber=0;
+    int NumberFibonacci=0;
+    int SecondNumber=1;
+    if(Math.Abs(number)==1)
     {
-        array[i]=Convert.ToInt32(Console.ReadLine());
-    }
-    return array;
-}
-void CopyArray(int[] array)
-{       
-    Console.WriteLine($"Поэлементное копирование массива размером [{array.Length}] ...");
-    var ResultArray= new int [array.Length];
-    for (int i = 0; i < array.Length; i++)
+        NumberFibonacci=SecondNumber;
+        for (int i = 0; i < Math.Abs(number)-1; i++)
     {
-        ResultArray[i]=array[i];
-        Thread.Sleep(800);
-        Console.WriteLine($"Array [{i}] = {array[i]} в NewArray [{i}] = {ResultArray[i]}");
+        if(number==1 || number==2)
+        {
+            NumberFibonacci=FirstNumber+SecondNumber;
+            FirstNumber=SecondNumber;
+            SecondNumber=NumberFibonacci;
+        }
     }
-    Console.WriteLine("Копирование завершено!");
+    return number*NumberFibonacci;
 }
-Console.Write("Введите размер массива: ");
-int size=Convert.ToInt32(Console.ReadLine());
-int [] Numbers= new int[size];
-int[] result=AddArray(Numbers);
-CopyArray(result);
+int result =Fibonacci(5);
