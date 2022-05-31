@@ -12,7 +12,9 @@ void intersectionPoint(double  b1, double  k1, double  b2, double  k2)
     }
     else
     {
-        System.Console.WriteLine($"При введеных параметров: ({k1}) ({k2}) - линии не пересекутся");
+        Console.ForegroundColor=ConsoleColor.Red;
+        Console.WriteLine($"При введеных параметров: ({k1}) ({k2}) - линии не пересекутся");
+        Console.ResetColor();
     }
 }
 int b1,k1,b2,k2;
